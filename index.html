@@ -3,20 +3,155 @@
     <head>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Bluelearn</title>
+        <style>
+            body {
+                font-family: "Poppins", sans-serif;
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            .loader {
+                border: 2px solid #f3f3f3; /* Light grey */
+                border-top: 2px solid #3498db; /* Blue */
+                border-radius: 50%;
+                width: 20px;
+                height: 20px;
+                animation: spin 2s linear infinite;
+            }
+
+            @keyframes spin {
+                0% {
+                    transform: rotate(0deg);
+                }
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+        </style>
     </head>
     <body>
-        <h1 id="value">Loaded</h1>
-        <button id="button">CLICK HERE</button>
+        <div
+            style="
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                width: 100%;
+                justify-content: center;
+                height: 100vh;
+            "
+        >
+            <svg
+                width="68"
+                height="68"
+                viewBox="0 0 68 68"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+            >
+                <rect width="68" height="68" rx="12" fill="url(#pattern0)" />
+                <defs>
+                    <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+                        <use xlink:href="#image0_1514_84270" transform="scale(0.00195312)" />
+                    </pattern>
+                    <image
+                        id="image0_1514_84270"
+                        width="512"
+                        height="512"
+                        xlink:href="data:image/png;base64,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"
+                    />
+                </defs>
+            </svg>
+
+            <h1 style="font-size: 24px; margin-bottom: 12px; font-weight: 800">
+                Download <span style="color: #5169f6">blue</span>learn
+            </h1>
+            <h2 style="font-size: 14px; color: #7b7f93; text-align: center; width: 338px; font-weight: 400">
+                Clicking the button below will take you to Play Store to download the app.
+            </h2>
+
+            <div id="loader" style="display: flex; align-items: center; margin-top: 54px">
+                <div class="loader"></div>
+                <p style="font-size: 14px; font-weight: 400; margin-left: 8px">Checking your Operating System</p>
+            </div>
+
+            <button style="margin-top: 54px; background-color: white; border: none" id="storeButton">
+                <img
+                    id="appStore"
+                    src="https://bluelearnprod.s3.ap-south-1.amazonaws.com/app/app_store.png"
+                    alt="Click here to download"
+                    style="display: none"
+                    width="137.61px"
+                    height="46px"
+                />
+
+                <img
+                    id="playStore"
+                    src="https://bluelearnprod.s3.ap-south-1.amazonaws.com/app/play_store.png"
+                    alt="Click here to download"
+                    style="display: none"
+                />
+            </button>
+        </div>
         <script>
-            navigator.clipboard.writeText("New test");
+            const agent = window.navigator.userAgent;
+
+            const isIos = agent.includes("iPhone") || agent.includes("Mac");
+
+            function getQueryParams() {
+                var queryString = window.location.search.substr(1);
+                var queryParams = {};
+
+                if (queryString) {
+                    var paramPairs = queryString.split("&");
+
+                    for (var i = 0; i < paramPairs.length; i++) {
+                        var pair = paramPairs[i].split("=");
+                        var paramName = decodeURIComponent(pair[0]);
+                        var paramValue = decodeURIComponent(pair[1] || "");
+
+                        // If the parameter name already exists, convert it to an array
+                        if (queryParams[paramName]) {
+                            if (!Array.isArray(queryParams[paramName])) {
+                                queryParams[paramName] = [queryParams[paramName]];
+                            }
+                            queryParams[paramName].push(paramValue);
+                        } else {
+                            queryParams[paramName] = paramValue;
+                        }
+                    }
+                }
+
+                return queryParams;
+            }
+
             // navigator.clipboard.writeText(JSON.stringify(getQueryParams()));
-            var btn = document.getElementById("button");
+            var btn = document.getElementById("storeButton");
+
+            setTimeout(() => {
+                document.getElementById("loader").style.display = "none";
+                if (isIos) {
+                    document.getElementById("appStore").style.display = "initial";
+                } else {
+                    document.getElementById("playStore").style.display = "initial";
+                }
+            }, 1000);
 
             btn.addEventListener("click", () => {
-                // document.getElementById("value").innerHTML = JSON.stringify(getQueryParams());
-                navigator.clipboard.writeText("Button clicked");
+                let data = getQueryParams();
+
+                navigator.clipboard.writeText(JSON.stringify(data));
+
+                if (isIos) {
+                    window.location.replace("https://apps.apple.com/in/app/bluelearn/id1659606724");
+                } else {
+                    window.location.replace("https://play.google.com/store/apps/details?id=com.bluelearn");
+                }
             });
         </script>
     </body>
