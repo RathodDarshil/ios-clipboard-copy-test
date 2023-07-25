@@ -71,8 +71,11 @@
             <h1 style="font-size: 24px; margin-bottom: 12px; font-weight: 800">
                 Download <span style="color: #5169f6">blue</span>learn
             </h1>
-            <h2 style="font-size: 14px; color: #7b7f93; text-align: center; width: 338px; font-weight: 400">
-                Clicking the button below will take you to Play Store to download the app.
+            <h2
+                id="subtitle"
+                style="font-size: 14px; color: #7b7f93; text-align: center; width: 338px; font-weight: 400"
+            >
+                Clicking the button below will take you to store to download the app.
             </h2>
 
             <div id="loader" style="display: flex; align-items: center; margin-top: 54px">
@@ -102,6 +105,10 @@
             const agent = window.navigator.userAgent;
 
             const isIos = agent.includes("iPhone") || agent.includes("Mac");
+
+            document.getElementById("subtitle").innerHTML = isIos
+                ? "Clicking the button below will take you to App Store to download the app."
+                : "Clicking the button below will take you to Play Store to download the app.";
 
             function getQueryParams() {
                 var queryString = window.location.search.substr(1);
